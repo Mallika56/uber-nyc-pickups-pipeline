@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Data: downloaded by the pipeline, never committed
+data/raw/
+*.part
+
+# Dashboard
+dashboard/node_modules/
+dashboard/dist/
+
+# Local settings and OS files
+.env
+.DS_Store
