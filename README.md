@@ -137,6 +137,11 @@ To work on the dashboard with hot reload, run `uvicorn api.main:app --reload` an
 The `Makefile` wraps these steps: `make setup`, `make db`, `make pipeline`, `make dashboard`,
 `make serve`, `make test`.
 
+**Docker:** `docker build -t uber-nyc .` builds the API and the dashboard into one image
+(`docker run -p 8000:8000 -e DATABASE_URL=... uber-nyc`). The image only serves the API and
+dashboard; it expects a PostgreSQL database already loaded by `python -m pipeline.run` to exist
+at `DATABASE_URL`.
+
 **macOS note:** if PostgreSQL won't start and its log says
 `postmaster became multithreaded during startup`, set `LC_ALL=en_US.UTF-8` before starting it.
 
@@ -176,4 +181,5 @@ api/        FastAPI app and response models
 dashboard/  React + TypeScript app (Vite)
 tests/      pytest suite and fixture file
 docs/       dashboard screenshot
+Dockerfile  builds the API + dashboard into one image (see Run it locally)
 ```
